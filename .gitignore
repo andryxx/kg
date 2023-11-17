@@ -110,3 +110,7 @@ package-lock.json
 *.csv
 *.bak
 *.owl
+*.zip
+
+mondo/*.json
+mondo/*.html
