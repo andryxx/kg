@@ -1,0 +1,278 @@
+curl -X POST \
+    -H 'Content-Type: application/json' \
+    https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader -d '
+    {
+      "source" : "s3://concept-graph-neptune/umls_rxnorm/concept_rxnorm.csv",
+      "format" : "csv",
+      "iamRoleArn" : "arn:aws:iam::090739627833:role/NeptuneS3FullAccess",
+      "region" : "us-east-1",
+      "failOnError" : "FALSE",
+      "parallelism" : "MEDIUM",
+      "updateSingleCardinalityProperties" : "TRUE",
+      "queueRequest" : "TRUE"
+    }'
+
+
+curl -X POST \
+    -H 'Content-Type: application/json' \
+    https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader -d '
+    {
+      "source" : "s3://concept-graph-neptune/umls_rxnorm/atom_rxnorm.csv",
+      "format" : "csv",
+      "iamRoleArn" : "arn:aws:iam::090739627833:role/NeptuneS3FullAccess",
+      "region" : "us-east-1",
+      "failOnError" : "FALSE",
+      "parallelism" : "MEDIUM",
+      "updateSingleCardinalityProperties" : "TRUE",
+      "queueRequest" : "TRUE"
+    }'
+
+curl -X POST \
+    -H 'Content-Type: application/json' \
+    https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader -d '
+    {
+      "source" : "s3://concept-graph-neptune/umls_rxnorm/cui_cui.csv",
+      "format" : "csv",
+      "iamRoleArn" : "arn:aws:iam::090739627833:role/NeptuneS3FullAccess",
+      "region" : "us-east-1",
+      "failOnError" : "FALSE",
+      "parallelism" : "MEDIUM",
+      "updateSingleCardinalityProperties" : "TRUE",
+      "queueRequest" : "TRUE"
+    }'
+
+
+curl -X POST \
+    -H 'Content-Type: application/json' \
+    https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader -d '
+    {
+      "source" : "s3://concept-graph-neptune/umls_rxnorm/is_atom_of.csv",
+      "format" : "csv",
+      "iamRoleArn" : "arn:aws:iam::090739627833:role/NeptuneS3FullAccess",
+      "region" : "us-east-1",
+      "failOnError" : "FALSE",
+      "parallelism" : "MEDIUM",
+      "updateSingleCardinalityProperties" : "TRUE",
+      "queueRequest" : "TRUE"
+    }'
+
+curl -X POST \
+    -H 'Content-Type: application/json' \
+    https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader -d '
+    {
+      "source" : "s3://concept-graph-neptune/umls_rxnorm/is_concept_of.csv",
+      "format" : "csv",
+      "iamRoleArn" : "arn:aws:iam::090739627833:role/NeptuneS3FullAccess",
+      "region" : "us-east-1",
+      "failOnError" : "FALSE",
+      "parallelism" : "MEDIUM",
+      "updateSingleCardinalityProperties" : "TRUE",
+      "queueRequest" : "TRUE"
+    }'
+
+
+curl -G 'https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader/e676e675-ea16-4bfb-be64-415a67a35f8c?details=true&errors=true&page=1&errorsPerPage=3'
+
+curl -G 'https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader/e0ab2b8f-1068-4e54-9cef-21ff559db634'
+
+curl -X POST \
+    -H 'Content-Type: application/json' \
+    https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader -d '
+    {
+      "source" : "s3://concept-graph-neptune/pharmogkb/nodes_drugs1.csv",
+      "format" : "csv",
+      "iamRoleArn" : "arn:aws:iam::090739627833:role/NeptuneS3FullAccess",
+      "region" : "us-east-1",
+      "failOnError" : "FALSE",
+      "parallelism" : "MEDIUM",
+      "updateSingleCardinalityProperties" : "TRUE",
+      "queueRequest" : "TRUE"
+    }'
+
+curl -X POST \
+    -H 'Content-Type: application/json' \
+    https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader -d '
+    {
+      "source" : "s3://concept-graph-neptune/pharmogkb/nodes_drugs1.csv",
+      "format" : "csv",
+      "iamRoleArn" : "arn:aws:iam::090739627833:role/NeptuneS3FullAccess",
+      "region" : "us-east-1",
+      "failOnError" : "TRUE",
+      "parallelism" : "MEDIUM",
+      "updateSingleCardinalityProperties" : "TRUE",
+      "queueRequest" : "TRUE"
+    }'
+
+
+{
+    "source" : "s3://concept-graph-neptune/umls_rxnorm/is_atom_of.csv",
+    "status" : "200 OK",
+    "payload" : {
+        "loadId" : "5496b9c6-9032-4b1d-b0e5-895843f7775f"
+    }
+}
+
+{
+    "source" : "s3://concept-graph-neptune/umls_rxnorm/concept_rxnorm.csv",
+    "status" : "200 OK",
+    "payload" : {
+        "loadId" : "902dccf9-affc-4b1b-abee-551cbc237288"
+    }
+}
+
+{ // FAILED
+    "source" : "s3://concept-graph-neptune/umls_rxnorm/edges_concept_rxnorm.csv",
+    "status" : "200 OK",
+    "payload" : {
+        "loadId" : "1f0c98c6-44c2-4263-b4d2-2c470a73a90e"
+    }
+}
+
+
+{
+    "source" : "s3://concept-graph-neptune/umls_rxnorm/atom_rxnorm.csv",
+    "status" : "200 OK",
+    "payload" : {
+        "loadId" : "443cbdb0-c845-41db-8763-1188e9be05f8"
+    }
+}
+
+
+{
+    "source" : "s3://concept-graph-neptune/umls_rxnorm/is_atom_of.csv",
+    "status" : "200 OK",
+    "payload" : {
+        "loadId" : "60d49dc5-b4d3-467f-81fe-5deedf07166e"
+    }
+}
+
+
+ {
+    "source" : "s3://concept-graph-neptune/umls_rxnorm/is_concept_of.csv",
+    "status" : "200 OK",
+    "payload" : {
+        "loadId" : "ed58c447-e778-44fb-9f1c-c2ebb604895e"
+    }
+}
+
+{ // FAILED
+    "source" : "s3://concept-graph-neptune/umls_rxnorm/cui_cui.csv",
+    "status" : "200 OK",
+    "payload" : {
+        "loadId" : "c028db33-478e-49f0-8260-623a731464d6"
+    }
+}
+
+{
+    "source" : "s3://concept-graph-neptune/umls_rxnorm/cui_cui.csv",
+    "status" : "200 OK",
+    "payload" : {
+        "loadId" : "53fb0018-1611-4cb1-bb4c-49ea3f8636b9"
+    }
+}
+
+{
+    "source" : "s3://concept-graph-neptune/umls_rxnorm/cui_cui.csv",
+    "status" : "200 OK",
+    "payload" : {
+        "loadId" : "f46107b8-16f0-4ba7-8c7a-f833da194da5"
+    }
+}
+
+"source" : "s3://concept-graph-neptune/umls_rxnorm/cui_cui.csv",
+"loadId" : "e0ab2b8f-1068-4e54-9cef-21ff559db634"
+
+
+curl -X POST \
+    -H 'Content-Type: application/json' \
+    https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader -d '
+    {
+      "source" : "s3://concept-graph-neptune/pharmogkb/nodes_umls_concepts.csv",
+      "format" : "csv",
+      "iamRoleArn" : "arn:aws:iam::090739627833:role/NeptuneS3FullAccess",
+      "region" : "us-east-1",
+      "failOnError" : "FALSE",
+      "parallelism" : "MEDIUM",
+      "updateSingleCardinalityProperties" : "TRUE",
+      "queueRequest" : "TRUE"
+    }'
+
+
+curl -X POST \
+-H 'Content-Type: application/json' \
+https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader -d '
+{
+    "source" : "s3://concept-graph-neptune/pharmogkb/nodes_drugs_atm_tradenames.csv",
+    "format" : "csv",
+    "iamRoleArn" : "arn:aws:iam::090739627833:role/NeptuneS3FullAccess",
+    "region" : "us-east-1",
+    "failOnError" : "FALSE",
+    "parallelism" : "MEDIUM",
+    "updateSingleCardinalityProperties" : "TRUE",
+    "queueRequest" : "TRUE"
+}'
+
+curl -G 'https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader/413f132b-a968-442e-b283-88801d8fd797'
+
+s3://concept-graph-neptune/pharmogkb/nodes_drugs1.csv
+ 64f4bc03-d6d4-4317-811d-e7c9546f6c0d
+{
+    "fullUri" : "s3://concept-graph-neptune/pharmogkb/nodes_drugs1.csv",
+    "runNumber" : 1,
+    "retryNumber" : 0,
+    "status" : "LOAD_COMPLETED",
+    "totalTimeSpent" : 11,
+    "startTime" : 1695745951,
+    "totalRecords" : 28688,
+    "totalDuplicates" : 0,
+    "parsingErrors" : 0,
+    "datatypeMismatchErrors" : 0,
+    "insertErrors" : 0
+}
+
+s3://concept-graph-neptune/pharmogkb/nodes_drugs_atm_generics.csv
+7008b717-a358-44ef-bd07-7f07bb3215b6
+    "fullUri" : "s3://concept-graph-neptune/pharmogkb/nodes_drugs_atm_generics.csv",
+    "runNumber" : 1,
+    "retryNumber" : 0,
+    "status" : "LOAD_COMPLETED",
+    "totalTimeSpent" : 17,
+    "startTime" : 1695746238,
+    "totalRecords" : 56648,
+    "totalDuplicates" : 0,
+    "parsingErrors" : 0,
+    "datatypeMismatchErrors" : 0,
+    "insertErrors" : 0
+
+s3://concept-graph-neptune/pharmogkb/nodes_drugs_atm_tradenames.csv
+413f132b-a968-442e-b283-88801d8fd797
+{
+    "fullUri" : "s3://concept-graph-neptune/pharmogkb/nodes_drugs_atm_tradenames.csv",
+    "runNumber" : 1,
+    "retryNumber" : 0,
+    "status" : "LOAD_COMPLETED",
+    "totalTimeSpent" : 30,
+    "startTime" : 1695746391,
+    "totalRecords" : 148120,
+    "totalDuplicates" : 32098,
+    "parsingErrors" : 0,
+    "datatypeMismatchErrors" : 0,
+    "insertErrors" : 0
+}
+
+s3://concept-graph-neptune/pharmogkb/nodes_umls_concepts.csv
+curl -X POST \
+    -H 'Content-Type: application/json' \
+    https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader -d '
+    {
+      "source" : "s3://concept-graph-neptune/pharmogkb/nodes_umls_concepts.csv",
+      "format" : "csv",
+      "iamRoleArn" : "arn:aws:iam::090739627833:role/NeptuneS3FullAccess",
+      "region" : "us-east-1",
+      "failOnError" : "FALSE",
+      "parallelism" : "MEDIUM",
+      "updateSingleCardinalityProperties" : "TRUE",
+      "queueRequest" : "TRUE"
+    }'
+
+curl -G 'https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader/7c14a296-f2e9-4875-b345-5cedf8f53165'

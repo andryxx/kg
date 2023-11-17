@@ -1,0 +1,445 @@
+{
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/ontology/Drug"
+        }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+            "type": "literal",
+            "value": "NaSSA",
+            "lang": "de"
+        },
+        {
+            "type": "literal",
+            "value": "Antidepressivo noradrenérgico e serotoninérgico específico",
+            "lang": "pt"
+        },
+        {
+            "type": "literal",
+            "value": "Antidepresivo noradrenérgico y serotonérgico específico",
+            "lang": "es"
+        },
+        {
+            "type": "literal",
+            "value": "去甲肾上腺素和特异性5-羟色胺能抗抑郁药",
+            "lang": "zh"
+        },
+        {
+            "type": "literal",
+            "value": "NaSSA",
+            "lang": "it"
+        },
+        {
+            "type": "literal",
+            "value": "Antidépresseur noradrénergique et sérotoninergique spécifique",
+            "lang": "fr"
+        },
+        {
+            "type": "literal",
+            "value": "Noradrenergic and specific serotonergic antidepressant",
+            "lang": "en"
+        },
+        {
+            "type": "literal",
+            "value": "NaSSA",
+            "lang": "sv"
+        }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+        {
+            "type": "literal",
+            "value": "Gli antidepressivi specifici noradrenergici e serotoninergici, conosciuti come NaSSA (dall'inglese noradrenergic and specific serotonergic antidepressant), sono una classe di antidepressivi che aumentano la neurotrasmissione di noradrenalina e serotonina grazie al blocco dei recettori adrenergici alfa-2 e al contemporaneo blocco di alcuni recettori serotoninergici. Sono efficaci nel trattamento della depressione quanto gli altri antidepressivi, e avendo una leggera azione sedativa, sono preferiti nelle forme caratterizzate da eccessiva ansia e insonnia.",
+            "lang": "it"
+        },
+        {
+            "type": "literal",
+            "value": "NaSSA (noradrenergt och specifikt serotonergt antidepressiva läkemedel) är en grupp antidepressiva läkemedel. I Sverige finns två godkända preparat i gruppen NaSSA-läkemedel på marknaden: Mianserin och Remeron (Mirtazapin). Det senare en vidareuteveckling av det tidigare. Denna läkemedels- eller farmakologi-relaterade artikel saknar väsentlig information. Du kan hjälpa till genom att lägga till den.",
+            "lang": "sv"
+        },
+        {
+            "type": "literal",
+            "value": "Les antidépresseurs noradrénergiques et sérotoninergiques spécifiques (NaSSAs) sont une catégorie d'antidépresseurs. \n* Portail de la biochimie \n* Portail de la médecine \n* Portail de la pharmacie",
+            "lang": "fr"
+        },
+        {
+            "type": "literal",
+            "value": "Os antidepressivos noradrenérgicos e serotoninérgicos específicos (ANES/NaSSAs) são uma classe de fármacos utilizada principalmente como antidepressivos. Eles atuam antagonizando o receptor adrenérgico alfa 2 e alguns receptores de serotonina, como 5-HT2A e 5-HT2C, mas também no 5-HT3, 5-HT6 e, em alguns casos, no 5-HT7. Ao bloquear os autorreceptores e heterorreceptores adrenérgicos alfa 2, os ANES melhoram a neurotransmissão adrenérgica e serotoninérgica cerebral, principalmente através da neurotransmissão mediada por 5-HT1A, e por isso produz efeitos eficazes na regulação do humor. Além disso, devido ao bloqueio de certos receptores de serotonina, a neurotransmissão serotonérgica não produz efeitos em áreas indesejadas, o que diminui a incidência de efeitos colaterais frequentemente ass",
+            "lang": "pt"
+        },
+        {
+            "type": "literal",
+            "value": "Los antidepresivos serotoninérgicos y noradrenérgicos específicos (NaSSA) son una clase de psicofármacos utilizados principalmente como antidepresivos.​ Actúan antagonizando el Receptor adrenérgico alfa 2 y ciertos receptores de la serotonina, como el 5-HT2A, 5-HT2C,​ 5-HT3​ 5-HT6 y 5-HT7. Mediante el bloqueo de los autorreceptores y heterorreceptores alfa 2 -adrenérgicos, los fármacos NaSSAs mejoran la neurotransmisión adrenérgica y serotoninérgica en el cerebro, involucrada en la regulación del estado de ánimo,​ en particular la transmisión mediada por el 5-HT 1A.​ Además, debido al bloqueo de los receptores de serotonina, la neurotransmisión serotoninérgica no se facilita en zonas no deseadas, lo que impide la incidencia de muchos efectos secundarios a menudo asociados con los ISRS.​​​ ",
+            "lang": "es"
+        },
+        {
+            "type": "literal",
+            "value": "去甲肾上腺素和特异性5-羟色胺能抗抑郁药（英語：Noradrenergic and specific serotonergic antidepressants）(NaSSAs)是一类主要用来治疗抑郁症的抗抑郁药。",
+            "lang": "zh"
+        },
+        {
+            "type": "literal",
+            "value": "Noradrenergic and specific serotonergic antidepressants (NaSSAs) are a class of psychiatric drugs used primarily as antidepressants. They act by antagonizing the α2-adrenergic receptor and certain serotonin receptors such as 5-HT2A and 5-HT2C, but also 5-HT3, 5-HT6, and/or 5-HT7 in some cases. By blocking α2-adrenergic autoreceptors and heteroreceptors, NaSSAs enhance adrenergic and serotonergic neurotransmission in the brain involved in mood regulation, notably 5-HT1A-mediated transmission. In addition, due to their blockade of certain serotonin receptors, serotonergic neurotransmission is not facilitated in unwanted areas, which prevents the incidence of many side effects often associated with selective serotonin reuptake inhibitor (SSRI) antidepressants; hence, in part, the \"specific se",
+            "lang": "en"
+        },
+        {
+            "type": "literal",
+            "value": "NaSSA ist die Abkürzung für englisch Noradrenergic and Specific Serotonergic Antidepressant (dt.: Noradrenerges und spezifisch serotonerges Antidepressivum), einer Gruppe von antidepressiven Psychopharmaka. Sie zählen zu den sogenannten „neueren Antidepressiva“. Das erste NaSSA Mianserin wurde 1967 von Organon (Tolvin®) patentiert und ist als Generikum im Handel. Weitere NaSSA sind Mirtazapin und das in Japan eingesetzte , beide sind chemisch eng verwandt mit Mianserin.",
+            "lang": "de"
+        }
+    ],
+    "http://xmlns.com/foaf/0.1/depiction": [
+        {
+            "type": "uri",
+            "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Mirtazapine.svg"
+        }
+    ],
+    "http://purl.org/dc/terms/subject": [
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Category:Alpha-2_blockers"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Category:Serotonin_receptor_antagonists"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Category:Noradrenergic_and_specific_serotonergic_antidepressants"
+        }
+    ],
+    "http://dbpedia.org/ontology/abstract": [
+        {
+            "type": "literal",
+            "value": "NaSSA ist die Abkürzung für englisch Noradrenergic and Specific Serotonergic Antidepressant (dt.: Noradrenerges und spezifisch serotonerges Antidepressivum), einer Gruppe von antidepressiven Psychopharmaka. Sie zählen zu den sogenannten „neueren Antidepressiva“. Diese tetrazyklischen Wirkstoffe binden an Bindungstellen (Rezeptoren) für die Monoamine Noradrenalin und Serotonin, die normalerweise in einer Rückkoppelung die Freisetzung dieser Transmitter an den Nervenendigungen hemmen. Unter dem Einfluss von NaSSA steigt die Konzentration der Transmitter an. Darin ähnelt die Wirkung der NaSSA derjenigen von SSNRI-Antidepressiva (Selektive Serotonin- und Noradrenalin-Wiederaufnahmehemmer). Sie haben jedoch deutlich stärkere antihistaminerge und daher sedierende Wirkung. NaSSA sind Antagonisten an präsynaptischen Auto-Rezeptoren des Alpha-2 Adrenozeptortyps und bewirken dadurch eine verstärkte Ausschüttung von Noradrenalin. Zudem sind sie Antagonisten an spezifischen Serotoninrezeptoren, üblicherweise 5-HT2A und 5-HT2C, aber auch 5-HT1F, oder 5-HT2B je nach NaSSA Wirkstoff. Mirtazapin wirkt vermutlich als Agonist an den Serotoninautorezeptoren des Typs 5-HT1A und verhindert damit eine durch α2A/C Blockade vermittelte Verstärkung der serotonergen Übertragung. Meist wirken NaSSA als H1-Antihistaminika sedierend. Das erste NaSSA Mianserin wurde 1967 von Organon (Tolvin®) patentiert und ist als Generikum im Handel. Weitere NaSSA sind Mirtazapin und das in Japan eingesetzte , beide sind chemisch eng verwandt mit Mianserin.",
+            "lang": "de"
+        },
+        {
+            "type": "literal",
+            "value": "去甲肾上腺素和特异性5-羟色胺能抗抑郁药（英語：Noradrenergic and specific serotonergic antidepressants）(NaSSAs)是一类主要用来治疗抑郁症的抗抑郁药。",
+            "lang": "zh"
+        },
+        {
+            "type": "literal",
+            "value": "Les antidépresseurs noradrénergiques et sérotoninergiques spécifiques (NaSSAs) sont une catégorie d'antidépresseurs. \n* Portail de la biochimie \n* Portail de la médecine \n* Portail de la pharmacie",
+            "lang": "fr"
+        },
+        {
+            "type": "literal",
+            "value": "Noradrenergic and specific serotonergic antidepressants (NaSSAs) are a class of psychiatric drugs used primarily as antidepressants. They act by antagonizing the α2-adrenergic receptor and certain serotonin receptors such as 5-HT2A and 5-HT2C, but also 5-HT3, 5-HT6, and/or 5-HT7 in some cases. By blocking α2-adrenergic autoreceptors and heteroreceptors, NaSSAs enhance adrenergic and serotonergic neurotransmission in the brain involved in mood regulation, notably 5-HT1A-mediated transmission. In addition, due to their blockade of certain serotonin receptors, serotonergic neurotransmission is not facilitated in unwanted areas, which prevents the incidence of many side effects often associated with selective serotonin reuptake inhibitor (SSRI) antidepressants; hence, in part, the \"specific serotonergic\" label of NaSSAs.",
+            "lang": "en"
+        },
+        {
+            "type": "literal",
+            "value": "Los antidepresivos serotoninérgicos y noradrenérgicos específicos (NaSSA) son una clase de psicofármacos utilizados principalmente como antidepresivos.​ Actúan antagonizando el Receptor adrenérgico alfa 2 y ciertos receptores de la serotonina, como el 5-HT2A, 5-HT2C,​ 5-HT3​ 5-HT6 y 5-HT7. Mediante el bloqueo de los autorreceptores y heterorreceptores alfa 2 -adrenérgicos, los fármacos NaSSAs mejoran la neurotransmisión adrenérgica y serotoninérgica en el cerebro, involucrada en la regulación del estado de ánimo,​ en particular la transmisión mediada por el 5-HT 1A.​ Además, debido al bloqueo de los receptores de serotonina, la neurotransmisión serotoninérgica no se facilita en zonas no deseadas, lo que impide la incidencia de muchos efectos secundarios a menudo asociados con los ISRS.​​​ Por eso son llamados específicos.",
+            "lang": "es"
+        },
+        {
+            "type": "literal",
+            "value": "Gli antidepressivi specifici noradrenergici e serotoninergici, conosciuti come NaSSA (dall'inglese noradrenergic and specific serotonergic antidepressant), sono una classe di antidepressivi che aumentano la neurotrasmissione di noradrenalina e serotonina grazie al blocco dei recettori adrenergici alfa-2 e al contemporaneo blocco di alcuni recettori serotoninergici. Sono efficaci nel trattamento della depressione quanto gli altri antidepressivi, e avendo una leggera azione sedativa, sono preferiti nelle forme caratterizzate da eccessiva ansia e insonnia.",
+            "lang": "it"
+        },
+        {
+            "type": "literal",
+            "value": "Os antidepressivos noradrenérgicos e serotoninérgicos específicos (ANES/NaSSAs) são uma classe de fármacos utilizada principalmente como antidepressivos. Eles atuam antagonizando o receptor adrenérgico alfa 2 e alguns receptores de serotonina, como 5-HT2A e 5-HT2C, mas também no 5-HT3, 5-HT6 e, em alguns casos, no 5-HT7. Ao bloquear os autorreceptores e heterorreceptores adrenérgicos alfa 2, os ANES melhoram a neurotransmissão adrenérgica e serotoninérgica cerebral, principalmente através da neurotransmissão mediada por 5-HT1A, e por isso produz efeitos eficazes na regulação do humor. Além disso, devido ao bloqueio de certos receptores de serotonina, a neurotransmissão serotonérgica não produz efeitos em áreas indesejadas, o que diminui a incidência de efeitos colaterais frequentemente associados aos inibidores selectivos da recaptação da serotonina (ISRS). Por sua alta seletividade, os NaSSAs são considerados serotononigérgicos específicos.",
+            "lang": "pt"
+        },
+        {
+            "type": "literal",
+            "value": "NaSSA (noradrenergt och specifikt serotonergt antidepressiva läkemedel) är en grupp antidepressiva läkemedel. I Sverige finns två godkända preparat i gruppen NaSSA-läkemedel på marknaden: Mianserin och Remeron (Mirtazapin). Det senare en vidareuteveckling av det tidigare. Denna läkemedels- eller farmakologi-relaterade artikel saknar väsentlig information. Du kan hjälpa till genom att lägga till den.",
+            "lang": "sv"
+        }
+    ],
+    "http://dbpedia.org/ontology/wikiPageWikiLink": [
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Binding_selectivity"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Adrenergic"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Aptazapine"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/A2-adrenergic_receptor"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Antidepressant"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/File:Mirtazapine.svg"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Tetracyclic_antidepressant"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Serotonin_receptor"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Category:Alpha-2_blockers"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Structural_analog"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/5-HT2A_receptor"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Psychiatric_drug"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/5-HT1A_receptor"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Antihistamine"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Preclinical"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Neurotransmission"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Mirtazapine"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Selective_serotonin_reuptake_inhibitor"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Category:Serotonin_receptor_antagonists"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Autoreceptor"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Side_effect"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Brain"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Receptor_antagonist"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Clinical_trial"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Serotonin_antagonist_and_reuptake_inhibitor"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Serotonergic"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/5-HT3_receptor"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Serotonin_modulator_and_stimulator"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Chemical_structure"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Esmirtazapine"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Norepinephrine-dopamine_disinhibitor"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Norepinephrine–dopamine_reuptake_inhibitor"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Atypical_antidepressant"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Mianserin"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Heteroreceptor"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/S32212"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/5-HT7_receptor"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Mood_(psychology)"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Category:Noradrenergic_and_specific_serotonergic_antidepressants"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Setiptiline"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/5-HT6_receptor"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/5-HT2C_receptor"
+        }
+    ],
+    "http://dbpedia.org/property/wikiPageUsesTemplate": [
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Template:Cite_journal"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Template:Commonscatinline"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Template:Reflist"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Template:Antidepressants"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Template:Adrenergic_receptor_modulators"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Template:Serotonin_receptor_modulators"
+        }
+    ],
+    "http://dbpedia.org/ontology/thumbnail": [
+        {
+            "type": "uri",
+            "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Mirtazapine.svg?width=300"
+        }
+    ],
+    "http://dbpedia.org/ontology/wikiPageRevisionID": [
+        {
+            "type": "literal",
+            "value": 1072673746,
+            "datatype": "http://www.w3.org/2001/XMLSchema#integer"
+        }
+    ],
+    "http://dbpedia.org/ontology/wikiPageLength": [
+        {
+            "type": "literal",
+            "value": "5837",
+            "datatype": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        }
+    ],
+    "http://dbpedia.org/ontology/wikiPageID": [
+        {
+            "type": "literal",
+            "value": 1303753,
+            "datatype": "http://www.w3.org/2001/XMLSchema#integer"
+        }
+    ],
+    "http://www.w3.org/2002/07/owl#sameAs": [
+        {
+            "type": "uri",
+            "value": "http://sv.dbpedia.org/resource/NaSSA"
+        },
+        {
+            "type": "uri",
+            "value": "http://rdf.freebase.com/ns/m.04rc70"
+        },
+        {
+            "type": "uri",
+            "value": "http://pt.dbpedia.org/resource/Antidepressivo_noradrenérgico_e_serotoninérgico_específico"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Noradrenergic_and_specific_serotonergic_antidepressant"
+        },
+        {
+            "type": "uri",
+            "value": "https://global.dbpedia.org/id/4Qfyd"
+        },
+        {
+            "type": "uri",
+            "value": "http://es.dbpedia.org/resource/Antidepresivo_noradrenérgico_y_serotonérgico_específico"
+        },
+        {
+            "type": "uri",
+            "value": "http://it.dbpedia.org/resource/NaSSA"
+        },
+        {
+            "type": "uri",
+            "value": "http://tr.dbpedia.org/resource/Noradrenerjik_ve_spesifik_serotonerjik_antidepresan"
+        },
+        {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q475921"
+        },
+        {
+            "type": "uri",
+            "value": "http://zh.dbpedia.org/resource/去甲肾上腺素和特异性5-羟色胺能抗抑郁药"
+        },
+        {
+            "type": "uri",
+            "value": "http://de.dbpedia.org/resource/NaSSA"
+        },
+        {
+            "type": "uri",
+            "value": "http://fr.dbpedia.org/resource/Antidépresseur_noradrénergique_et_sérotoninergique_spécifique"
+        }
+    ],
+    "http://purl.org/linguistics/gold/hypernym": [
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Drugs"
+        }
+    ],
+    "http://www.w3.org/ns/prov#wasDerivedFrom": [
+        {
+            "type": "uri",
+            "value": "http://en.wikipedia.org/wiki/Noradrenergic_and_specific_serotonergic_antidepressant?oldid=1072673746&ns=0"
+        }
+    ],
+    "http://xmlns.com/foaf/0.1/isPrimaryTopicOf": [
+        {
+            "type": "uri",
+            "value": "http://en.wikipedia.org/wiki/Noradrenergic_and_specific_serotonergic_antidepressant"
+        }
+    ]
+}

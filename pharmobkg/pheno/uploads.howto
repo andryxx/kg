@@ -1,0 +1,106 @@
+curl -G 'https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader/zzzzzzzzzzzzzz'
+curl -G 'https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader/zzzzzzzzzzzzzz?details=true&errors=true&page=1&errorsPerPage=3'
+
+
+#################### umls nodes
+
+curl -X POST \
+-H 'Content-Type: application/json' \
+https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader -d '
+{
+    "source" : "s3://concept-graph-neptune/pharmogkb/pheno/nodes_umls_concepts.csv",
+    "format" : "csv",
+    "iamRoleArn" : "arn:aws:iam::090739627833:role/NeptuneS3FullAccess",
+    "region" : "us-east-1",
+    "failOnError" : "TRUE",
+    "parallelism" : "MEDIUM",
+    "updateSingleCardinalityProperties" : "TRUE",
+    "queueRequest" : "TRUE"
+}'
+
+curl -G 'https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader/656573e3-8fc6-4443-9745-eb7d3e099284'
+
+
+#################### pheno nodes
+
+curl -X POST \
+-H 'Content-Type: application/json' \
+https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader -d '
+{
+    "source" : "s3://concept-graph-neptune/pharmogkb/pheno/nodes_phenotypes.csv",
+    "format" : "csv",
+    "iamRoleArn" : "arn:aws:iam::090739627833:role/NeptuneS3FullAccess",
+    "region" : "us-east-1",
+    "failOnError" : "TRUE",
+    "parallelism" : "MEDIUM",
+    "updateSingleCardinalityProperties" : "TRUE",
+    "queueRequest" : "TRUE"
+}'
+
+curl -G 'https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader/c748bca1-ac56-4524-8cd9-62be4c91b5e2'
+
+
+
+#################### pheno nodes altnames
+
+curl -X POST \
+-H 'Content-Type: application/json' \
+https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader -d '
+{
+    "source" : "s3://concept-graph-neptune/pharmogkb/pheno/nodes_phenotypes_altnames.csv",
+    "format" : "csv",
+    "iamRoleArn" : "arn:aws:iam::090739627833:role/NeptuneS3FullAccess",
+    "region" : "us-east-1",
+    "failOnError" : "TRUE",
+    "parallelism" : "MEDIUM",
+    "updateSingleCardinalityProperties" : "TRUE",
+    "queueRequest" : "TRUE"
+}'
+
+curl -G 'https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader/8bec79f4-aa95-41e0-aa47-1cc6af7c54a3'
+
+
+#################### pheno edges phenotypes/altnames
+
+curl -X POST \
+-H 'Content-Type: application/json' \
+https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader -d '
+{
+    "source" : "s3://concept-graph-neptune/pharmogkb/pheno/edges_phenotypes_altnames.csv",
+    "format" : "csv",
+    "iamRoleArn" : "arn:aws:iam::090739627833:role/NeptuneS3FullAccess",
+    "region" : "us-east-1",
+    "failOnError" : "TRUE",
+    "parallelism" : "MEDIUM",
+    "updateSingleCardinalityProperties" : "TRUE",
+    "queueRequest" : "TRUE"
+}'
+
+curl -G 'https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader/ff6cb692-f848-4c06-80c0-89c353133c9e'
+// FAILED
+
+curl -G 'https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader/e8e7a27c-d612-463f-bff0-41f60adbba9b'
+
+
+#################### pheno edges phenotypes/ umls concepts
+
+curl -X POST \
+-H 'Content-Type: application/json' \
+https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader -d '
+{
+    "source" : "s3://concept-graph-neptune/pharmogkb/pheno/edges.pheno.concepts.csv",
+    "format" : "csv",
+    "iamRoleArn" : "arn:aws:iam::090739627833:role/NeptuneS3FullAccess",
+    "region" : "us-east-1",
+    "failOnError" : "TRUE",
+    "parallelism" : "MEDIUM",
+    "updateSingleCardinalityProperties" : "TRUE",
+    "queueRequest" : "TRUE"
+}'
+
+
+curl -G 'https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader/f5b0db72-8d55-456c-bbf1-05cc7811c282'
+curl -G 'https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader/6206558b-546c-455c-bdf0-662bb74050cc'
+
+
+

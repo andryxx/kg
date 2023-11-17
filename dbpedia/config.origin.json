@@ -1,0 +1,21 @@
+{
+    "drug": "SELECT DISTINCT ?drug WHERE { ?drug rdf:type dbo:Drug . }",
+    "disease": "SELECT DISTINCT ?disease WHERE { ?disease rdf:type dbo:Disease . }",
+    "proteins": "SELECT DISTINCT ?protein WHERE { ?protein rdf:type dbo:Protein . }",
+    "chemical": "SELECT ?chemical WHERE { ?chemical rdf:type dbo:ChemicalCompound . }",
+    "gene": "SELECT ?gene WHERE { ?gene rdf:type dbo:Gene . }",
+    "enzyme": "SELECT ?enzyme WHERE { ?enzyme rdf:type dbo:Enzyme . }",
+    "fungus": "SELECT ?fungus WHERE { ?fungus rdf:type dbo:Fungus . }",
+    "bacterium": "SELECT ?bacterium WHERE { ?bacterium rdf:type dbo:Bacteria . }",
+    "plant": "SELECT ?plant WHERE { ?plant rdf:type dbo:Plant . }",
+    "eukaryote": "SELECT ?eukaryote WHERE { ?eukaryote rdf:type dbo:Eukaryote . }",
+    "mammal": "SELECT ?mammal WHERE { ?mammal rdf:type dbo:Mammal . }",
+    "fish": "SELECT ?fish WHERE { ?fish rdf:type dbo:Fish . }",
+    "food": "SELECT ?food WHERE { ?food rdf:type dbo:Food . }",
+    "bird": "SELECT ?bird WHERE { ?bird rdf:type dbo:Bird . }",
+    "language": "SELECT ?language WHERE { ?language rdf:type dbo:Language . }",
+    "reptile": "SELECT ?reptile WHERE { ?reptile rdf:type dbo:Reptile . }",
+    "activity": "SELECT ?activity WHERE { ?activity rdf:type dbo:Activity . }",
+    "amphibian": "SELECT ?amphibian WHERE {?amphibian rdf:type dbo:Amphibian . }",
+    "animal": "SELECT ?animal WHERE { ?animal rdf:type dbo:Animal . }"
+}

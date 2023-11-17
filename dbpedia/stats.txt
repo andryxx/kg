@@ -1,0 +1,19 @@
+[
+  '36550: drug: relevant references added',
+  '24502: drug relations pairs',
+  '1205: drug: linked nodes (by node name)',
+  '15104: drug: irrelevant references skipped',
+  '2201: drug: unlinked nodes',
+  '6399: drug: linked nodes (by code)',
+  '7604: drug related entities found'
+]
+
+[
+  '85757: disease: relevant references added',
+  '74110: disease relations pairs',
+  '905: disease: linked nodes (by node name)',
+  '6160: disease: irrelevant references skipped',
+  '5312: disease: linked nodes (by code)',
+  '10378: disease: unlinked nodes',
+  '6217: disease related entities found'
+]

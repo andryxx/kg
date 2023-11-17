@@ -1,0 +1,131 @@
+curl -X POST \
+-H 'Content-Type: application/json' \
+https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader -d '
+{
+    "source" : "s3://concept-graph-neptune/pharmogkb/nodes_drugs1.csv",
+    "format" : "csv",
+    "iamRoleArn" : "arn:aws:iam::090739627833:role/NeptuneS3FullAccess",
+    "region" : "us-east-1",
+    "failOnError" : "TRUE",
+    "parallelism" : "MEDIUM",
+    "updateSingleCardinalityProperties" : "TRUE",
+    "queueRequest" : "TRUE"
+}'
+
+####
+
+"loadId" : "7e3efc7e-5ccc-44b1-82b2-560226800ab3"
+curl -G 'https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader/7e3efc7e-5ccc-44b1-82b2-560226800ab3'
+
+####
+
+// 3586 nodes created
+
+#####################################################################################################################
+
+curl -X POST \
+-H 'Content-Type: application/json' \
+https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader -d '
+{
+    "source" : "s3://concept-graph-neptune/pharmogkb/nodes_drugs_atm_generics.csv",
+    "format" : "csv",
+    "iamRoleArn" : "arn:aws:iam::090739627833:role/NeptuneS3FullAccess",
+    "region" : "us-east-1",
+    "failOnError" : "FALSE",
+    "parallelism" : "MEDIUM",
+    "updateSingleCardinalityProperties" : "TRUE",
+    "queueRequest" : "TRUE"
+}'
+
+####
+
+"loadId" : "3cac41f1-b1ab-449a-a2d9-58eda3cec9b7"
+curl -G 'https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader/3cac41f1-b1ab-449a-a2d9-58eda3cec9b7'
+
+####
+
+// 7081 NODES created
+
+#####################################################################################################################
+
+curl -X POST \
+-H 'Content-Type: application/json' \
+https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader -d '
+{
+    "source" : "s3://concept-graph-neptune/pharmogkb/nodes_drugs_atm_tradenames.csv",
+    "format" : "csv",
+    "iamRoleArn" : "arn:aws:iam::090739627833:role/NeptuneS3FullAccess",
+    "region" : "us-east-1",
+    "failOnError" : "FALSE",
+    "parallelism" : "MEDIUM",
+    "updateSingleCardinalityProperties" : "TRUE",
+    "queueRequest" : "TRUE"
+}'
+
+
+####
+
+"loadId" : "f35d169d-a2e3-4892-a400-a34e2c2866a6"
+curl -G 'https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader/f35d169d-a2e3-4892-a400-a34e2c2866a6'
+
+####
+
+// 18515 NODES created
+
+
+
+/////// EDGES TO UMLS
+
+curl -X POST \
+-H 'Content-Type: application/json' \
+https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader -d '
+{
+    "source" : "s3://concept-graph-neptune/pharmogkb/edges.drugs.concepts.csv",
+    "format" : "csv",
+    "iamRoleArn" : "arn:aws:iam::090739627833:role/NeptuneS3FullAccess",
+    "region" : "us-east-1",
+    "failOnError" : "FALSE",
+    "parallelism" : "MEDIUM",
+    "updateSingleCardinalityProperties" : "TRUE",
+    "queueRequest" : "TRUE"
+}'
+curl -G 'https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader/64dd51fe-8b81-4c36-b717-cfa2cbea6b3a'
+curl -G 'https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader/64dd51fe-8b81-4c36-b717-cfa2cbea6b3a?details=true&errors=true&page=1&errorsPerPage=3'
+
+///////////////  EDGES GENERICS
+
+curl -X POST \
+-H 'Content-Type: application/json' \
+https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader -d '
+{
+    "source" : "s3://concept-graph-neptune/pharmogkb/edges.drugs.generics.csv",
+    "format" : "csv",
+    "iamRoleArn" : "arn:aws:iam::090739627833:role/NeptuneS3FullAccess",
+    "region" : "us-east-1",
+    "failOnError" : "FALSE",
+    "parallelism" : "MEDIUM",
+    "updateSingleCardinalityProperties" : "TRUE",
+    "queueRequest" : "TRUE"
+}'
+
+curl -G 'https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader/760635a5-372d-4fb9-a596-7958d3766e88'
+
+
+
+///////////////  EDGES TRADENAMES
+
+curl -X POST \
+-H 'Content-Type: application/json' \
+https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader -d '
+{
+    "source" : "s3://concept-graph-neptune/pharmogkb/edges.drugs.tradenames.csv",
+    "format" : "csv",
+    "iamRoleArn" : "arn:aws:iam::090739627833:role/NeptuneS3FullAccess",
+    "region" : "us-east-1",
+    "failOnError" : "FALSE",
+    "parallelism" : "MEDIUM",
+    "updateSingleCardinalityProperties" : "TRUE",
+    "queueRequest" : "TRUE"
+}'
+
+curl -G 'https://neptune-dev-database-1.cluster-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/loader/2af6fcc3-c96f-4993-94cd-f5e670ddc49a'
