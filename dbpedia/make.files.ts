@@ -9,7 +9,7 @@ import graphCategories from "./relevants.json";
 const DriverRemoteConnection = gremlin.driver.DriverRemoteConnection;
 const Graph = gremlin.structure.Graph;
 
-const endpoint = "wss://dev.cluster-ro-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/gremlin"; // READ ONLY
+const endpoint = "wss://dev-instance-2.csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/gremlin"; // READ ONLY
 
 const dc = new DriverRemoteConnection(endpoint, {});
 
@@ -20,11 +20,11 @@ const source = "dbpedia";
 const uploadDate = "2023-11-15";
 
 const entities = [
-    // "drug",
+    "drug",
     // "disease",
     // "chemical",
     // "gene",
-    "proteins",
+    // "proteins",
 ];
 
 const headerEdges = [
@@ -49,21 +49,29 @@ const orphansFileTemplate = "./dbpedia/orphans.*.csv";
 
 const edgesFileTemplate = "./dbpedia/edges.*.csv";
 
+type NodeType = "concept" | "atom";
+
 interface GraphNode {
     id: string;
     label: string;
+    type?: NodeType;
 };
 
-const getNode = (key: string, value: string): Promise<GraphNode[]> => {
-    return g.V().has(key, value).toList().
-        then(data => {
-            const resp = JSON.parse(JSON.stringify(data));
+const normalizeNodes = (nodesArr: any[]): GraphNode[] => nodesArr.map(item => JSON.parse(JSON.stringify(Object.fromEntries(item))));
 
-            return resp;
-        }).catch(error => {
-            console.log("ERROR", error);
-            // dc.close();
-        });
+const getConceptOfNode = async (key: string, value: string): Promise<GraphNode[]> => {
+    const conceptsIds: Set<string> = new Set();
+    const theNodes = normalizeNodes(await g.V().has(key, value).elementMap().toList());
+
+    let atoms: GraphNode[] = theNodes.filter(node => node.type !== "concept");
+    await doInParallel(atoms, async (atom: GraphNode) => {
+        const concepts: GraphNode[] = normalizeNodes(await g.V(atom.id).out("is_atom_of").elementMap().toList());
+        theNodes.push(...concepts);
+        if (concepts.length === 0) conceptsIds.add(atom.id);
+        else concepts.forEach(concept => conceptsIds.add(concept.id));
+    });
+
+    return Array.from(conceptsIds).map(nodeId => theNodes.find(node => node.id === nodeId));
 };
 
 const counter = new Counter();
@@ -190,7 +198,7 @@ const normalizeName = (nodeName: string): string => {
                 let refFound = false;
 
                 for (const onto of Object.keys(xrefs)) {
-                    const nodes = await getNode("node_code", xrefs[onto]);
+                    const nodes = await getConceptOfNode("node_code", xrefs[onto]);
                     if (!nodes.length) continue;
                     refFound = await handleNodes(nodeId, nodes, relevant, irrelevant, entity, edgesCsv) || refFound;
                     if (refFound) counter.add(`${entity}: relevant references added`);
@@ -202,9 +210,9 @@ const normalizeName = (nodeName: string): string => {
                 }
 
 
-                let nodes: GraphNode[] = await getNode("node_name", nodeName);
-                if (!nodes.length) nodes = await getNode("node_name", nodeName.toLowerCase());
-                if (!nodes.length) nodes = await getNode("node_name", normalizeName(nodeName));
+                let nodes: GraphNode[] = await getConceptOfNode("node_name", nodeName);
+                if (!nodes.length) nodes = await getConceptOfNode("node_name", nodeName.toLowerCase());
+                if (!nodes.length) nodes = await getConceptOfNode("node_name", normalizeName(nodeName));
                 refFound = await handleNodes(nodeId, nodes, relevant, irrelevant, entity, edgesCsv) || refFound;
 
                 if (refFound) {
@@ -213,7 +221,7 @@ const normalizeName = (nodeName: string): string => {
                     return counter.add(`${entity}: linked nodes (by node name)`);
                 }
 
-                nodes = await getNode("node_code", nodeName);
+                nodes = await getConceptOfNode("node_code", nodeName);
                 refFound = await handleNodes(nodeId, nodes, relevant, irrelevant, entity, edgesCsv) || refFound;
 
                 if (refFound) {
@@ -235,11 +243,11 @@ const normalizeName = (nodeName: string): string => {
                     const genesInText = wordsArr.filter(word => word.length > 2 && word.toUpperCase() === word).filter(gene => gene !== geneName);
 
                     if (checkPhraseArr.reverse().join(" ") === "encoded by the gene" && genesInText.length === 0) {
-                        nodes = await getNode("node_code", geneName);
+                        nodes = await getConceptOfNode("node_code", geneName);
                         refFound = await handleNodes(nodeId, nodes, relevant, irrelevant, entity, edgesCsv) || refFound;
 
                         if (!refFound) {
-                            nodes = await getNode("node_name", geneName);
+                            nodes = await getConceptOfNode("node_name", geneName);
                             refFound = await handleNodes(nodeId, nodes, relevant, irrelevant, entity, edgesCsv) || refFound;
                         }
                     }

@@ -111,6 +111,7 @@ package-lock.json
 *.bak
 *.owl
 *.zip
+*.tsv
 
 mondo/*.json
 mondo/*.html

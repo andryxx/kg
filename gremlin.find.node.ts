@@ -24,12 +24,13 @@ const g = graph.traversal().withRemote(dc);
 // g.V().has("node_code", "PA166238901").toList().
 // g.V('123456').values('fld_type')
 
-const searchValue = "Currarino syndrome";
+// const searchValue = "Currarino syndrome";
+const searchValue = "11-Hydroxy-Delta-8-THC";
 
 (async () => {
-    // const data = await g.V().has('node_name', searchValue).elementMap().toList();
+    const data = await g.V().has('node_name', searchValue).elementMap().toList();
     // const data = await g.V("umls_A18467593").outE().elementMap().toList(); // all edges
-    const data = await g.V("umls_A18467593").out("is_atom_of").elementMap().toList();
+    // const data = await g.V("umls_A18467593").out("is_atom_of").elementMap().toList();
     const resp = data.map(item => JSON.parse(JSON.stringify(Object.fromEntries(item))));
     console.log(resp);
     dc.close();

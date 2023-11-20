@@ -8,7 +8,8 @@ import { Logger } from "../mods/logger";
 const DriverRemoteConnection = gremlin.driver.DriverRemoteConnection;
 const Graph = gremlin.structure.Graph;
 
-const endpoint = "wss://dev.cluster-ro-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/gremlin"; // READ ONLY
+// const endpoint = "wss://dev.cluster-ro-csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/gremlin"; // READ ONLY
+const endpoint = "wss://dev-instance-2.csuiw8leicqh.us-east-1.neptune.amazonaws.com:8182/gremlin"; // READ ONLY
 
 const dc = new DriverRemoteConnection(endpoint, {});
 
@@ -17,40 +18,45 @@ const g = graph.traversal().withRemote(dc);
 
 const entities = [
     // "drug",
-    // "disease",
+    "disease",
     // "chemical",
     // "gene",
-    "proteins",
+    // "proteins",
 ];
 
+const CHUNK_SIZE = 50;
 
 console.time("script duration");
 
 const srcFileTemplate = "./dbpedia/data.*.csv";
 const dstFileTemplate = "./dbpedia/found.in.kg.*.csv";
 
+type NodeType = "concept" | "atom";
+
 interface GraphNode {
     id: string;
     label: string;
+    type?: NodeType;
 };
 
+const normalizeNodes = (nodesArr: any[]): GraphNode[] => nodesArr.map(item => JSON.parse(JSON.stringify(Object.fromEntries(item))));
 
-const getNode = (key: string, value: string): Promise<GraphNode[]> => {
-    return g.V().has(key, value).toList().
-        then(data => {
-            const resp = JSON.parse(JSON.stringify(data));
-            
-            return resp;
-        }).catch(error => {
-            console.log("ERROR", error);
-            // dc.close();
-        });
+const getConceptOfNode = async (key: string, value: string): Promise<GraphNode[]> => {
+    const conceptsIds: Set<string> = new Set();
+    const theNodes = normalizeNodes(await g.V().has(key, value).elementMap().toList());
+
+    let atoms: GraphNode[] = theNodes.filter(node => node.type !== "concept");
+    await doInParallel(atoms, async (atom: GraphNode) => {
+        const concepts: GraphNode[] = normalizeNodes(await g.V(atom.id).out("is_atom_of").elementMap().toList());
+        theNodes.push(...concepts);
+        if (concepts.length === 0) conceptsIds.add(atom.id);
+        else concepts.forEach(concept => conceptsIds.add(concept.id));
+    });
+
+    return Array.from(conceptsIds).map(nodeId => theNodes.find(node => node.id === nodeId));
 };
 
 const counter = new Counter();
-
-const relevantEntities = [];
-const irrelevantEntities = [];
 
 const normalizeName = nodeName => {
     return nodeName
@@ -58,7 +64,6 @@ const normalizeName = nodeName => {
         .replace(/_/g, " ")
         .replace(/  /g, " ")
 };
-
 
 (async () => {
 
@@ -69,19 +74,19 @@ const normalizeName = nodeName => {
         await report.clear();
 
         const dataSet = await parseCSV(srcFileName);
-        
-        const dataChunks = _.chunk(dataSet, 50);
+
+        const dataChunks = _.chunk(dataSet, CHUNK_SIZE);
 
         let current = 0;
         let found = 0;
         const labels = new Set();
         for (const dataSubSet of dataChunks) {
             await doInParallel(dataSubSet, async ({ id }) => {
-                let nodes: GraphNode[] = await getNode("node_name", id);
+                let nodes: GraphNode[] = await getConceptOfNode("node_name", id);
                 if (!nodes) return console.log("UNABLE TO FIND NODES", id);
-                if (!nodes.length) nodes = await getNode("node_name", id.toLowerCase());
-                if (!nodes.length) nodes = await getNode("node_name", normalizeName(id));
-                if (!nodes.length) nodes = await getNode("node_code", id.toLowerCase());
+                if (!nodes.length) nodes = await getConceptOfNode("node_name", id.toLowerCase());
+                if (!nodes.length) nodes = await getConceptOfNode("node_name", normalizeName(id));
+                if (!nodes.length) nodes = await getConceptOfNode("node_code", id.toLowerCase());
                 // console.log(id, node);
                 if (nodes.length) {
                     found++;
@@ -94,12 +99,11 @@ const normalizeName = nodeName => {
                     await report.write([id, "NOT FOUND"]);
                     counter.add(`${entity} related entities not found`);
                 }
-                consoleProgress(++current, dataSet.length, { label: found.toString() })
+                consoleProgress(++current, dataSet.length, { label: found.toString() });
             });
         }
         counter.add(`${entity} related entities found`, found);
         console.log(entity, "labels:\n", Array.from(labels).sort().join("\n"));
-
 
         dc.close();
         // END OF ENTITIES CYCLE
