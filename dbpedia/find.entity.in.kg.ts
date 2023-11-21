@@ -18,8 +18,8 @@ const g = graph.traversal().withRemote(dc);
 
 const entities = [
     // "drug",
-    "disease",
-    // "chemical",
+    // "disease",
+    "chemical",
     // "gene",
     // "proteins",
 ];

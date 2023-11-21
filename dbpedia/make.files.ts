@@ -20,11 +20,11 @@ const source = "dbpedia";
 const uploadDate = "2023-11-15";
 
 const entities = [
-    "drug",
+    // "drug",
     // "disease",
     // "chemical",
     // "gene",
-    // "proteins",
+    "proteins",
 ];
 
 const headerEdges = [
@@ -44,8 +44,8 @@ console.time("script duration");
 const srcFileTemplate = "./dbpedia/nodes.*.csv";
 const mappingFileTemplate = "./dbpedia/mapping.*.csv";
 const orphansFileTemplate = "./dbpedia/orphans.*.csv";
-// const mappingFileTemplate = "./dbpedia/";
-// const mappingFileTemplate = "";
+const geneOrphantsHandled = "./dbpedia/handled.orphants/orphans.gene.symbols_0_1707.csv";
+const propeinOrphantsHandled = "./dbpedia/handled.orphants/orphans.proteins.symbols_0_4591.cleaned.csv";
 
 const edgesFileTemplate = "./dbpedia/edges.*.csv";
 
@@ -152,8 +152,16 @@ const normalizeName = (nodeName: string): string => {
 (async () => {
     for (const entity of entities) {
         const mapping = {};
-        const edges = {};
         const { relevant, irrelevant } = graphCategories[entity];
+
+        let foundOrpants = [];
+        if (entity === "gene") foundOrpants = await parseCSV(geneOrphantsHandled, { separator: "," });
+        if (entity === "proteins") foundOrpants = await parseCSV(propeinOrphantsHandled, { separator: "," });
+
+        const orphansMapping = foundOrpants.reduce((accum, item) => {
+            accum[item.nodeId] = item.gene_symbol;
+            return accum;
+        }, {});
 
         const mappingCsv = await parseCSV(mappingFileTemplate.replace(/\*/g, entity));
 
@@ -258,6 +266,24 @@ const normalizeName = (nodeName: string): string => {
                     counter.add(`${entity}: relevant references added`);
                     return counter.add(`${entity}: linked nodes (by symantic analyse)`);
                 }
+
+                const geneSymbol = orphansMapping[nodeId];
+                if (geneSymbol) {
+                    nodes = await getConceptOfNode("node_code", geneSymbol);
+                    refFound = await handleNodes(nodeId, nodes, relevant, irrelevant, entity, edgesCsv) || refFound;
+
+                    if (!refFound) {
+                        nodes = await getConceptOfNode("node_name", geneSymbol);
+                        refFound = await handleNodes(nodeId, nodes, relevant, irrelevant, entity, edgesCsv) || refFound;
+                    }
+                }
+
+                if (refFound) {
+                    found++;
+                    counter.add(`${entity}: relevant references added`);
+                    return counter.add(`${entity}: linked nodes (by handled orphans)`);
+                }
+
 
                 counter.add(`${entity}: unlinked nodes`);
                 await orphansCsv.write([
