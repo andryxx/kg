@@ -1,9 +1,0 @@
-SELECT count(n.type), n.type
-FROM mondo.nodes n
-group by n.type;
-
-************************
-
-45652	CLASS
-366	PROPERTY
-18	INDIVIDUAL

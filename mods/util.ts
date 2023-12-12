@@ -33,7 +33,7 @@ class Counter {
 
   get(alias?: string) {
     if (alias) {
-      return this.counts[alias] ? this.counts[alias] : 0;
+      return this.counts[alias] ?? 0;
     }
 
     let result = "";
@@ -42,6 +42,15 @@ class Counter {
       result = `${result.length > 0 ? `${result}\n` : ""}${row}`;
     }
     return result;
+  }
+
+  getTotal(except?: string[] | string): number {
+    let total = 0;
+    for (const alias of Object.keys(this.counts)) {
+      if (except?.includes(alias) || except === alias) continue;
+      total += this.counts[alias];
+    }
+    return total;
   }
 
   getAsArr() {
@@ -568,7 +577,7 @@ const consoleProgress = (curr, total, options = {}) => {
   const crosses = progress < completedLines ? progress : completedLines;
   const dots = progress % 150;
 
-  process.stdout.clearLine(0, ()=>{});
+  process.stdout.clearLine(0, () => { });
   process.stdout.cursorTo(0);
   process.stdout.write(`${label.length > 0 ? `[${label}] ` : ""}${((curr * 100) / total).toFixed(2)}% done${"".padStart(crosses, "x").padStart(dots, ".")}`);
   if (curr === total) console.log("");

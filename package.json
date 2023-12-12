@@ -9,6 +9,7 @@
   "author": "axx",
   "license": "ISC",
   "dependencies": {
+    "@opensearch-project/opensearch": "^2.4.0",
     "axios": "^1.5.0",
     "beautify": "^0.0.8",
     "csv-parser": "^3.0.0",

@@ -1,0 +1,129 @@
+[{
+    "id": "http://purl.obolibrary.org/obo/CL_0000003",
+    "lbl": "native cell",
+    "type": "CLASS",
+    "meta": {
+        "definition": {
+            "val": "A cell that is found in a natural setting, which includes multicellular organism cells 'in vivo' (i.e. part of an organism), and unicellular organisms 'in environment' (i.e. part of a natural environment).",
+            "xrefs": ["CARO:mah"]
+        },
+        "comments": ["To accommodate unicellular organisms better, 'cell in vivo' has been re-labeled 'native cell' to better represent its intended meaning - that is, that it is a cell in the context of a multicellular organism or in a natural environment. 'Native' is intended to contrast with 'in vitro', which refers to cells or other biological entities that have been intentionally placed in a controlled, non-natural setting for the purpose of study or manipulation. (MAH 1.12.12)."],
+        "subsets": ["http://purl.obolibrary.org/obo/ubprop#_upper_level"],
+        "synonyms": [{
+            "pred": "hasNarrowSynonym",
+            "val": "cell in vivo"
+        }],
+        "xrefs": [{
+            "val": "CARO:0000013"
+        }],
+        "basicPropertyValues": [{
+            "pred": "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace",
+            "val": "cell"
+        }]
+    }
+},
+{
+    "id": "http://purl.obolibrary.org/obo/CL_0000134",
+    "lbl": "mesenchymal stem cell",
+    "type": "CLASS",
+    "meta": {
+        "definition": {
+            "val": "A connective tissue cell that normally gives rise to other cells that are organized as three-dimensional masses. In humans, this cell type is CD73-positive, CD90-positive, CD105-positive, CD45-negative, CD34-negative, and MHCII-negative. They may further differentiate into osteoblasts, adipocytes, myocytes, neurons, or chondroblasts in vitro. Originally described as residing in the bone marrow, this cell type is now known to reside in many, if not all, adult organs.",
+            "xrefs": ["FB:ma", "GOC:dsd", "PMCID:PMC2613570", "PMID:10102814j", "PMID:16923606", "PMID:17986482", "PMID:19960544", "http://en.wikipedia.org/wiki/Mesenchymal_stem_cell", "http://www.copewithcytokines.de/cope.cgi?key=mesenchymal%20stem%20cells"]
+        },
+        "comments": ["Many but not all mesenchymal cells derive from the mesoderm. MSCs are reportedly CD3-negative, CD4-negative, CD5-negative, CD8-negative, CD11a-negative, CD11b-negative, CD14-negative, CD19-negative, CD29-positive, CD31-negative, CD34-negative, CD38-negative, CD40-negative, CD44-positive, CD45-negative, CD49-positive, CD54-positive, CD66b-negative, CD79a-negative, CD80-negative, CD102-positive, CD106-positive, CD117-positive, CD121a-positive, CD121b-positive, CD123-positive, CD124-positive, CD133-negative, CD146-positive, CD166-positive, CD271-positive, B220-negative, Gr1-negative, MHCI-positive, MHCII-negative, SSEA4-negative, sca1-positive, Ter119-negative, and glycophorin A-negative. Cultured MSCs are capable of producing stem cell factor, IL7, IL8, IL11, TGF-beta, cofilin, galectin-1, laminin-receptor 1, cyclophilin A, and MMP-2."],
+        "synonyms": [{
+            "pred": "hasNarrowSynonym",
+            "val": "BMSC"
+        }, {
+            "pred": "hasNarrowSynonym",
+            "val": "bone marrow stromal cells"
+        }, {
+            "pred": "hasNarrowSynonym",
+            "val": "colony-forming unit-fibroblast"
+        }, {
+            "pred": "hasNarrowSynonym",
+            "val": "marrow stromal cells",
+            "xrefs": ["PMID:11378515"]
+        }, {
+            "pred": "hasRelatedSynonym",
+            "val": "CFU-F"
+        }, {
+            "pred": "hasRelatedSynonym",
+            "val": "MSC",
+            "xrefs": ["PMID:11378515"]
+        }, {
+            "pred": "hasRelatedSynonym",
+            "val": "mesenchymal precursor cell"
+        }, {
+            "synonymType": "http://purl.obolibrary.org/obo/cl#PLURAL",
+            "pred": "hasRelatedSynonym",
+            "val": "mesenchymal progenitor cells",
+            "xrefs": ["MESH:D044982"]
+        }, {
+            "pred": "hasRelatedSynonym",
+            "val": "mesenchymal stem cell"
+        }, {
+            "pred": "hasRelatedSynonym",
+            "val": "mesenchymal stromal cell"
+        }, {
+            "synonymType": "http://purl.obolibrary.org/obo/cl#PLURAL",
+            "pred": "hasRelatedSynonym",
+            "val": "mesenchymal stromal cells"
+        }, {
+            "synonymType": "http://purl.obolibrary.org/obo/cl#PLURAL",
+            "pred": "hasRelatedSynonym",
+            "val": "stem cells, mesenchymal",
+            "xrefs": ["MESH:D044982"]
+        }],
+        "xrefs": [{
+            "val": "BTO:0002625"
+        }, {
+            "val": "BTO:0003298"
+        }, {
+            "val": "FMA:70546"
+        }],
+        "basicPropertyValues": [{
+            "pred": "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId",
+            "val": "CL:0002452"
+        }, {
+            "pred": "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace",
+            "val": "cell"
+        }, {
+            "pred": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+            "val": "https://github.com/obophenotype/cell-ontology/issues/474"
+        }]
+    }
+}, {
+    "id": "http://purl.obolibrary.org/obo/CL_0000136",
+    "lbl": "fat cell",
+    "type": "CLASS",
+    "meta": {
+        "definition": {
+            "val": "A fat-storing cell found mostly in the abdominal cavity and subcutaneous tissue of mammals. Fat is usually stored in the form of triglycerides.",
+            "xrefs": ["MESH:A11.329.114"]
+        },
+        "synonyms": [{
+            "pred": "hasExactSynonym",
+            "val": "adipocyte"
+        }, {
+            "pred": "hasExactSynonym",
+            "val": "adipose cell"
+        }],
+        "xrefs": [{
+            "val": "BTO:0000443"
+        }, {
+            "val": "CALOHA:TS-0012"
+        }, {
+            "val": "FMA:63880"
+        }],
+        "basicPropertyValues": [{
+            "pred": "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId",
+            "val": "CL:0000450"
+        }, {
+            "pred": "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace",
+            "val": "cell"
+        }]
+    }
+}
+]
