@@ -1,0 +1,308 @@
+{
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+        {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q8386"
+        },
+        {
+            "type": "uri",
+            "value": "http://www.w3.org/2002/07/owl#Thing"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/ontology/Drug"
+        },
+        {
+            "type": "uri",
+            "value": "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#ChemicalObject"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/ontology/ChemicalSubstance"
+        }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+            "type": "literal",
+            "value": "11-Hydroxy-Delta-8-THC",
+            "lang": "en"
+        }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+        {
+            "type": "literal",
+            "value": "11-Hydroxy-Delta-8-tetrahydrocannabinol (11-OH-Δ8-THC, alternatively numbered as 7-OH-Δ6-THC) is an active metabolite of Delta-8-THC (Δ8-THC), the less predominant psychoactive component of cannabis. It retains psychoactive effects in animal studies with higher potency than Δ8-THC but lower potency than 11-OH-Δ9-THC. Historically it has been of limited interest due to the low proportion of Δ8-THC relative to Δ9-THC in cannabis, but with widespread legitimate use of semi-synthetic Δ8-THC in jurisdictions where Δ9-THC remains illegal, 11-OH-Δ8-THC is now an important metabolite for distinguishing between use of legal Δ8-THC and illegal Δ9-THC.",
+            "lang": "en"
+        }
+    ],
+    "http://xmlns.com/foaf/0.1/depiction": [
+        {
+            "type": "uri",
+            "value": "http://commons.wikimedia.org/wiki/Special:FilePath/11-OH-D8-THC_structure.png"
+        }
+    ],
+    "http://purl.org/dc/terms/subject": [
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Category:Cannabinoids"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Category:Benzochromenes"
+        }
+    ],
+    "http://dbpedia.org/ontology/abstract": [
+        {
+            "type": "literal",
+            "value": "11-Hydroxy-Delta-8-tetrahydrocannabinol (11-OH-Δ8-THC, alternatively numbered as 7-OH-Δ6-THC) is an active metabolite of Delta-8-THC (Δ8-THC), the less predominant psychoactive component of cannabis. It retains psychoactive effects in animal studies with higher potency than Δ8-THC but lower potency than 11-OH-Δ9-THC. Historically it has been of limited interest due to the low proportion of Δ8-THC relative to Δ9-THC in cannabis, but with widespread legitimate use of semi-synthetic Δ8-THC in jurisdictions where Δ9-THC remains illegal, 11-OH-Δ8-THC is now an important metabolite for distinguishing between use of legal Δ8-THC and illegal Δ9-THC.",
+            "lang": "en"
+        }
+    ],
+    "http://dbpedia.org/ontology/wikiPageWikiLink": [
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Active_metabolite"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/11-Hydroxy-THC"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/9-OH-HHC"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/11-OH-HHC"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/7-Hydroxycannabidiol"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Category:Benzochromenes"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Delta-6-Cannabidiol"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/8,11-Dihydroxytetrahydrocannabinol"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/3'-Hydroxy-THC"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/11-OH-CBN"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Delta-8-THC"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/HU-210"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Category:Cannabinoids"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Cannabis"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/11-Nor-9-carboxy-THC"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Delta-10-THC"
+        }
+    ],
+    "http://dbpedia.org/property/wikiPageUsesTemplate": [
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Template:Cannabinoid-stub"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Template:Cannabinoids"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Template:Cascite"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Template:Short_description"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Template:Reflist"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/Template:Drugbox"
+        }
+    ],
+    "http://dbpedia.org/ontology/thumbnail": [
+        {
+            "type": "uri",
+            "value": "http://commons.wikimedia.org/wiki/Special:FilePath/11-OH-D8-THC_structure.png?width=300"
+        }
+    ],
+    "http://dbpedia.org/ontology/wikiPageRevisionID": [
+        {
+            "type": "literal",
+            "value": 1085710511,
+            "datatype": "http://www.w3.org/2001/XMLSchema#integer"
+        }
+    ],
+    "http://dbpedia.org/ontology/wikiPageLength": [
+        {
+            "type": "literal",
+            "value": "4066",
+            "datatype": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        }
+    ],
+    "http://dbpedia.org/ontology/wikiPageID": [
+        {
+            "type": "literal",
+            "value": 68736146,
+            "datatype": "http://www.w3.org/2001/XMLSchema#integer"
+        }
+    ],
+    "http://www.w3.org/2002/07/owl#sameAs": [
+        {
+            "type": "uri",
+            "value": "https://global.dbpedia.org/id/G6Pke"
+        },
+        {
+            "type": "uri",
+            "value": "http://dbpedia.org/resource/11-Hydroxy-Delta-8-THC"
+        },
+        {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q108568604"
+        }
+    ],
+    "http://www.w3.org/ns/prov#wasDerivedFrom": [
+        {
+            "type": "uri",
+            "value": "http://en.wikipedia.org/wiki/11-Hydroxy-Delta-8-THC?oldid=1085710511&ns=0"
+        }
+    ],
+    "http://xmlns.com/foaf/0.1/isPrimaryTopicOf": [
+        {
+            "type": "uri",
+            "value": "http://en.wikipedia.org/wiki/11-Hydroxy-Delta-8-THC"
+        }
+    ],
+    "http://dbpedia.org/property/chemspiderid": [
+        {
+            "type": "literal",
+            "value": 161395,
+            "datatype": "http://www.w3.org/2001/XMLSchema#integer"
+        }
+    ],
+    "http://dbpedia.org/property/c": [
+        {
+            "type": "literal",
+            "value": 21,
+            "datatype": "http://www.w3.org/2001/XMLSchema#integer"
+        }
+    ],
+    "http://dbpedia.org/property/h": [
+        {
+            "type": "literal",
+            "value": 30,
+            "datatype": "http://www.w3.org/2001/XMLSchema#integer"
+        }
+    ],
+    "http://dbpedia.org/ontology/pubchem": [
+        {
+            "type": "literal",
+            "value": "185651"
+        }
+    ],
+    "http://dbpedia.org/property/o": [
+        {
+            "type": "literal",
+            "value": 3,
+            "datatype": "http://www.w3.org/2001/XMLSchema#integer"
+        }
+    ],
+    "http://dbpedia.org/property/pubchem": [
+        {
+            "type": "literal",
+            "value": 185651,
+            "datatype": "http://www.w3.org/2001/XMLSchema#integer"
+        }
+    ],
+    "http://dbpedia.org/property/stdinchikey": [
+        {
+            "type": "literal",
+            "value": "LOUSQMWLMDHRIK-IAGOWNOFSA-N",
+            "lang": "en"
+        }
+    ],
+    "http://dbpedia.org/property/smiles": [
+        {
+            "type": "literal",
+            "value": "CCCCCC1=CCO",
+            "lang": "en"
+        }
+    ],
+    "http://dbpedia.org/ontology/fdaUniiCode": [
+        {
+            "type": "literal",
+            "value": "GM4TR07BPX"
+        }
+    ],
+    "http://dbpedia.org/property/iupacName": [
+        {
+            "type": "literal",
+            "value": -9,
+            "datatype": "http://www.w3.org/2001/XMLSchema#integer"
+        }
+    ],
+    "http://dbpedia.org/property/unii": [
+        {
+            "type": "literal",
+            "value": "GM4TR07BPX",
+            "lang": "en"
+        }
+    ],
+    "http://dbpedia.org/property/casNumber": [
+        {
+            "type": "literal",
+            "value": 28646,
+            "datatype": "http://www.w3.org/2001/XMLSchema#integer"
+        }
+    ],
+    "http://dbpedia.org/property/stdinchi": [
+        {
+            "type": "literal",
+            "value": 1,
+            "datatype": "http://www.w3.org/2001/XMLSchema#integer"
+        }
+    ],
+    "http://dbpedia.org/ontology/casNumber": [
+        {
+            "type": "literal",
+            "value": "28646-40-4"
+        }
+    ],
+    "http://dbpedia.org/property/width": [
+        {
+            "type": "literal",
+            "value": 220,
+            "datatype": "http://www.w3.org/2001/XMLSchema#integer"
+        }
+    ]
+}

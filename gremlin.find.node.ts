@@ -1,7 +1,7 @@
 import { bty, doInParallel } from "./mods/util";
 import gremlin from "gremlin";
 
-import { GraphNode, getConceptOfNode } from "./common";
+import { GraphNode } from "./mods/common";
 
 const DriverRemoteConnection = gremlin.driver.DriverRemoteConnection;
 const Graph = gremlin.structure.Graph;
@@ -48,8 +48,8 @@ const getConcept = async (key: string, value: string): Promise<GraphNode[]> => {
     return nodes.filter(node => node.type === "concept");
 };
 
-const getEdges = async (key: string, edgeName?: string): Promise<any> => {
-    return normalizeNodes(await g.V(key).outE().elementMap().toList());
+const getEdges = async (from: string, edgeName?: string): Promise<any> => {
+    return normalizeNodes(await g.V(from).outE().elementMap().toList());
 };
 
 // const getConceptOfNode = async (key: string, value: string): Promise<GraphNode[]> => {
@@ -138,6 +138,7 @@ const getEdgesBetweenNodes = async (from: string, to: string): Promise<any> => {
 
 
 (async () => {
+    console.log("GREMLIN");
     // const data = await g.V().has('node_code', searchValue).elementMap().toList();
     // const data = await g.V("umls_A18467593").outE().elementMap().toList(); // all edges
     // const data = await g.V("umls_A18467593").out("is_atom_of").elementMap().toList();
@@ -151,17 +152,21 @@ const getEdgesBetweenNodes = async (from: string, to: string): Promise<any> => {
     // const field = "~id";
     const field = "node_code";
 
-    const searchValue = "D065635";
+    const searchValue = "2248";
     // const searchValue = "D018636";
 
     // const field = "node_source_1";
     // const field = "node_source_2";
     // const searchValue = "omim";
 
+    // =============== NOT FOUN CONCEPT: http://identifiers.org/snomedct/85051008 onto: snomedct_us code: 85051008 ===============
+
 
     // const resp = await getConceptOfNode(field, searchValue);
     // const resp = await getSingleNode(field, searchValue);
     const resp = await getNode(field, searchValue);
+
+    // const resp = await getEdges("umls_A17838111");
 
     // const nodeId = "umls_C0205858";
     // const resp = await getEdges(nodeId);
@@ -171,7 +176,8 @@ const getEdgesBetweenNodes = async (from: string, to: string): Promise<any> => {
 
     // const resp = await getEdgesBetweenNodes(id1, id2);
 
-    console.log(resp);
+    console.log(resp.length, resp);
+    // console.log(resp.length, resp.map(item => item.id).sort());
     dc.close();
 
 })();

@@ -1,19 +1,49 @@
 [
-  '36550: drug: relevant references added',
-  '24502: drug relations pairs',
-  '1205: drug: linked nodes (by node name)',
-  '15104: drug: irrelevant references skipped',
-  '2201: drug: unlinked nodes',
-  '6399: drug: linked nodes (by code)',
-  '7604: drug related entities found'
+  '37803: drug: relevant references added',
+  '25436: drug relations pairs',
+  '1401: drug: linked nodes (by node name)',
+  '14761: drug: irrelevant references skipped',
+  '6411: drug: linked nodes (by code)',
+  '1993: drug: unlinked nodes',
+  '7812: drug related entities found'
 ]
 
 [
-  '85757: disease: relevant references added',
-  '74110: disease relations pairs',
-  '905: disease: linked nodes (by node name)',
-  '6160: disease: irrelevant references skipped',
+  '92110: disease: relevant references added',
+  '78428: disease relations pairs',
+  '2940: disease: linked nodes (by node name)',
+  '6208: disease: irrelevant references skipped',
   '5312: disease: linked nodes (by code)',
-  '10378: disease: unlinked nodes',
-  '6217: disease related entities found'
+  '8343: disease: unlinked nodes',
+  '8252: disease related entities found'
+]
+
+[
+  '20314: chemical: relevant references added',
+  '14037: chemical relations pairs',
+  '5513: chemical: linked nodes (by node name)',
+  '1210: chemical: irrelevant references skipped',
+  '396: chemical: linked nodes (by code)',
+  '9688: chemical: unlinked nodes',
+  '5909: chemical related entities found'
+]
+
+[
+  '45434: gene: relevant references added',
+  '35126: gene relations pairs',
+  '9653: gene: linked nodes (by node name)',
+  '281: gene: irrelevant references skipped',
+  '1707: gene: unlinked nodes',
+  '655: gene: linked nodes (by symantic analyse)',
+  '10308: gene related entities found'
+]
+
+[
+  '44666: proteins: relevant references added',
+  '34352: proteins relations pairs',
+  '9511: proteins: linked nodes (by node name)',
+  '3072: proteins: irrelevant references skipped',
+  '532: proteins: linked nodes (by code)',
+  '4591: proteins: unlinked nodes',
+  '10043: proteins related entities found'
 ]

@@ -33,7 +33,7 @@ const getNode = (id: string): Promise<Node> => {
     return g.V().has("~id", id).toList().
         then(data => {
             const [resp] = JSON.parse(JSON.stringify(data));
-            
+
             return resp;
         }).catch(error => {
             console.log("ERROR", error);
@@ -64,9 +64,9 @@ const prefix = "umls_";
             const nodeId = dataRow[umlsIdField].split("_").pop().split("(").shift();
             if (nodeId === "") return;
             // console.log(dataRow, { nodeId });
-    
+
             const reportRow = [`${prefix}${nodeId}`, "no", "no"];
-    
+
             const node = await getNode(`${prefix}${nodeId}`);
             if (node?.id) {
                 reportRow[1] = "yes";
@@ -75,11 +75,11 @@ const prefix = "umls_";
                 const nodeInUpperCase = await getNode(`${prefix}${nodeId.toUpperCase()}`);
                 reportRow[2] = nodeInUpperCase?.id ? "yes" : "no";
             }
-    
+
             await csv.write(reportRow);
             // process.exit(0);
         });
-        }
-        dc.close();
+    }
+    dc.close();
 })();
 console.timeEnd("script");

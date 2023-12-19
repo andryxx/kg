@@ -71,12 +71,15 @@ const getConcept = async (key: string, value: string): Promise<GraphNode[]> => {
     return nodes.filter(node => node.type === "concept");
 };
 
-interface GetConceptOfNodeOptions {
+
+type searchableFields =
+    "~id" |
+    "node_code";
+interface GetConceptsOfNodeOptions {
     onto?: string;
     includeOrphans?: boolean;
 };
-
-const getConceptOfNode = async (key: string, value: string, options: GetConceptOfNodeOptions = {}): Promise<GraphNode[]> => {
+const getConceptsOfNode = async (key: searchableFields, value: string, options: GetConceptsOfNodeOptions = {}): Promise<GraphNode[]> => {
     if (DEBUG) console.log(">>>>>>>>>>>>> LAUNCH GREMLIN METHOD", {
         method: "getConceptOfNode",
         key,

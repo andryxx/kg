@@ -1,5 +1,5 @@
 
-import { bty, doInParallel } from "./mods/util";
+import { bty, doInParallel } from "./util";
 const { Client } = require("@opensearch-project/opensearch");
 
 const client = new Client({
@@ -7,6 +7,7 @@ const client = new Client({
 });
 
 const index_name = "amazon_neptune";
+const DEBUG = false;
 
 type EntityType = "vertex" | "edge";
 type NodeIfc = {
@@ -130,6 +131,12 @@ const getEdges = async (params: getEdgesParameters): Promise<any[]> => {
     let resp: any[] = Object.values(allMatchedById);
     resp = resp.filter(item => item.dtype === "edge");
 
+    // if (DEBUG) {
+    //     console.log({resp})
+    //     console.log(resp.map(item => item.label).sort())
+    //     process.exit(0);
+    // }
+
     const filters = [];
     if (from) filters.push((resp) => resp.filter(item => item.id.toString().startsWith(from)));
     if (to) filters.push((resp) => resp.filter(item => item.id.toString().endsWith(to)));
@@ -145,6 +152,7 @@ const getEdges = async (params: getEdgesParameters): Promise<any[]> => {
         resp = filter(resp);
     }
 
+
     resp = resp.map(item => {
         const [from, , to] = item.id.split("-");
         const { dtype, ...result } = item;
@@ -156,57 +164,65 @@ const getEdges = async (params: getEdgesParameters): Promise<any[]> => {
 
 const searchExact = async (field: string, value: string): Promise<NodeIfc[]> => {
     const results: NodeIfc[] = await getAllMatched(value);
+    // if (DEBUG && value === "Q23.4") console.log("searchExact -> getAllMatched", { field, value, results, filtered: results.filter(item => {
+    //     console.log({"item[field]": item[field], value, resp: item[field] === value})
+    //     return item[field] === value
+    // }) });
+    // if (DEBUG && value === "Q23.4") process.exit(0)
     return results.filter(item => item[field] === value);
+};
+
+const getEdgesBetweenNodes = async (node1Id: string, node2Id: string): Promise<any> => {
+    return [...(await getEdges({ from: node1Id, to: node2Id })), ...(await getEdges({ from: node2Id, to: node1Id }))];
 };
 
 type searchableFields =
     "id" |
     "node_code";
-
-const getConceptsOfNode = async (field: searchableFields, value: string): Promise<any[]> => {
+interface GetConceptsOfNodeOptions {
+    onto?: string;
+    includeOrphans?: boolean;
+};
+const getConceptsOfNode = async (
+    field: searchableFields,
+    value: string,
+    options: GetConceptsOfNodeOptions = {}
+): Promise<any[]> => {
     let matchedNodes = [];
     if (field === "node_code") matchedNodes = await searchExact(field, value);
     else if (field === "id") {
         const found = await getItemById(value);
         matchedNodes = found ? [found] : [];
     };
+    // if (DEBUG && value === "Q23.4") console.log("matchedNodes", matchedNodes);
+    if (options.onto) matchedNodes = matchedNodes.filter(node => [node.node_source_1, node.node_source_2].includes(options.onto)); // filter only nodes of selected ontology in options
+    // if (DEBUG && value === "Q23.4") {
+    //     console.log("matchedNodes", matchedNodes);
+    // }
 
-    const result = [];
+    const result = matchedNodes.filter(node => (node.type === "concept" || (!node.type && node?.node_source_1 !== "umls")));
+    const uniqueKeys = new Set();
     for (const atom of matchedNodes) {
         const edges = await getEdges({ from: atom.id, edgeLabel: "is_atom_of" }) || [];
+        // if (DEBUG && value === "Q23.4") console.log({ edges })
         const concepts = await doInParallel(edges, async (edge) => {
             return await getItemById(edge.to);
         });
-        result.push(...concepts);
+        for (const concept of concepts) {
+            if (uniqueKeys.has(concept.id)) continue;
+            uniqueKeys.add(concept.id);
+            result.push(concept);
+        }
     }
+    // if (DEBUG && value === "Q23.4") console.log({ result })
+    // if (DEBUG && value === "Q23.4") process.exit(0);
     return result;
 };
 
-
-
-(async () => {
-    console.log("Search results:");
-
-    // const field = "node_code";
-    // const value = "D065635";
-    // const field = "node_name";
-    // const value = "Benign Paroxysmal Positional Vertigo";
-    // const value = "coronavirus";
-    const field = "entity_id";
-    const value = "umls_A27187826";
-
-    // const response = await searchExact(field, value);
-    // const response = await getAllMatched(field, value);
-    // const response = await getAllById(value);
-    // const response = await getEdges({ from: value, edgeLabel: "is_atom_of" });
-    const response = await getConceptsOfNode("id", value);
-
-    // const response = await client.indices.
-    // const results = response.body.hits?.hits?.map(({ _source }) => normalizeDoc(_source));
-    // response.body.hits?.hits.map(item => item._source)
-    // console.log(results, results.length, results.map(doc => doc.id));
-    console.log(response.length, bty(response));
-    // console.log(response.length, response.map(doc => doc.id));
-    // console.log(response.body.hits.hits);
-
-})();
+export {
+    getConceptsOfNode,
+    getEdgesBetweenNodes,
+    getEdges,
+    getItemById,
+    searchExact,
+}

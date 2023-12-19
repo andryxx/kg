@@ -4,21 +4,18 @@ import moment from "moment";
 
 import {
     header,
-    getNode,
-    getConcept,
-    getConceptOfNode,
-
     GraphNode,
     NodeRow,
-    getEdgesBetweenNodes,
-} from "../common";
+} from "../mods/common";
+
+import { getConceptsOfNode, getEdgesBetweenNodes } from "../mods/open.search";
 import { Counter, bty, parseCSV, timeout } from "../mods/util";
 import { Logger } from "../mods/logger";
 
-const letsBegin = false;
+const letsBegin = true;
 
-// const reader = fs.createReadStream("./mondo/data/mondo.tiny.owl");
-const reader = fs.createReadStream("./mondo/data/mondo.owl");
+const reader = fs.createReadStream("./mondo/data/mondo.tiny.owl");
+// const reader = fs.createReadStream("./mondo/data/mondo.owl");
 
 const nHeader = header.nodes;
 // const eHeader = header.edges;
@@ -76,7 +73,7 @@ const isOntoId = (str: string): boolean => {
 const ontolinks = {
     "http://purl.obolibrary.org/obo/DOID_": "doid",
     "https://icd.who.int/browse10/2019/en#/": "icd10",
-    "http://purl.bioontology.org/ontology/ICD10CM/": "icd10",
+    "http://purl.bioontology.org/ontology/ICD10CM/": "icd10cm",
     "http://identifiers.org/insdc/": "insdc", // International Nucleotide Sequence Database Collaboration
     "http://identifiers.org/meddra/": "meddra",
     "http://identifiers.org/mesh/": "msh", // C536474
@@ -101,7 +98,7 @@ class Node {
     }
 
     private async _getConceptByCode(code: string = this._nCode) {
-        const concepts: GraphNode[] = await getConceptOfNode("node_code", code, { onto: this._onto });
+        const concepts: GraphNode[] = await getConceptsOfNode("node_code", code, { onto: this._onto });
 
         if (concepts.length === 0 && ![].includes(this._onto)) {
             console.log(`=============== NOT FOUN CONCEPT: ${this._link} onto: ${this._onto} code: ${code} ===============`);
@@ -118,7 +115,8 @@ class Node {
     };
 
     private async _getConceptById(id) {
-        const concepts = await getConceptOfNode("~id", id);
+        const concepts = await getConceptsOfNode("id", id);
+        // console.log({ concepts })
 
         if (concepts.length === 0) {
             console.log(`=============== NOT FOUN CONCEPT: ${this._link} onto: ${this._onto} nodeId: ${id} ===============`);
@@ -175,7 +173,7 @@ class Node {
             return await this._getConceptById(this._nCode.toLowerCase());
         } else if (this._onto === "ncit") {
             return [];
-        } else if (this._onto === "icd10") {
+        } else if (["icd10", "icd10cm"].includes(this._onto)) {
             return await this._getConceptByCode();
         } else if (this._onto === "orphanet") {
             return await this._getConceptByCode(this._nCode.split("_").pop());
@@ -354,18 +352,18 @@ reader.on("data", async function (chunk) {
             const reverseXref = crossEdges.find(xref => xref.key === reverseKey) || { key: reverseKey, edgeName: "!!NOT FOUND!!" };
             handledKeys.add(reverseKey);
 
-            if (!node1 )
+            if (!node1)
 
-            await eMatchesCsv.write([
-                nRow.id, // "MONDO Node",
-                nRow.name, // "Node Name",
-                node1.id, // "Matched Concept1",
-                node1.node_name, // "Concept1 Name",
-                node2.id, // "Matched Concept2",
-                node2.node_name, // "Concept2 Name",
-                edgeName, // "Edge",
-                reverseXref.edgeName, // "Reverse Edge"
-            ]);
+                await eMatchesCsv.write([
+                    nRow.id, // "MONDO Node",
+                    nRow.name, // "Node Name",
+                    node1.id, // "Matched Concept1",
+                    node1.node_name, // "Concept1 Name",
+                    node2.id, // "Matched Concept2",
+                    node2.node_name, // "Concept2 Name",
+                    edgeName, // "Edge",
+                    reverseXref.edgeName, // "Reverse Edge"
+                ]);
             subcounter.add(edgeName);
             subcounter.add(reverseXref.edgeName);
         }
